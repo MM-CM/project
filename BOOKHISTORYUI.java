@@ -25,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
         LinkedListBook bookList = new LinkedListBook();
         JButton back = new JButton();
         
-        private String[] headers = {"Title", "Author", "ISBN", "Genre", "Availability"};
+        private String[] headers = {"Title", "Author", "ISBN", "Genre", "Borrowed Date", "Due Date", "Overdue Fine"};
         DefaultTableModel defTab = new    DefaultTableModel(bookList.getBookData(), headers);
         JTable table = new JTable(defTab);
          JScrollPane sp = new JScrollPane(table);
