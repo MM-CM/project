@@ -50,9 +50,8 @@ public class BROWSEUI extends JFrame implements ActionListener, ItemListener {
             this.username = username;
 //            public BROWSEUI(){
         
-        //Add table
-        
-        // When the this frame display, the sorted books displayed without performng an action
+
+        // When the this frame display, the sorted books displayed  eeven without performng an action
         updateTableWithSortedBooks(defTab);
             
         pnl2 = new JPanel();
@@ -68,12 +67,10 @@ public class BROWSEUI extends JFrame implements ActionListener, ItemListener {
         search.setIcon(new ImageIcon(image2));
         search.setBounds(215, 11, 81, 53);
         search.setBorder(null);
-//        search.setText("Search");
         search.setHorizontalTextPosition(JButton.LEFT);
         search.setFont(new Font("Bebas Neue", Font.BOLD, 30));
         search.setForeground(Color.WHITE);
         search.setBackground(new Color(0xBB9457));
-//        search.setIcon(new ImageIcon(image2));
         search.addActionListener(e -> {
             String inputISBN = isbn.getText(); // Get d input as a string     
 
@@ -236,21 +233,6 @@ public class BROWSEUI extends JFrame implements ActionListener, ItemListener {
     }
 });
        
-        back = new JButton("Back");
-        back.setBounds(1200, 750, 226, 88);
-        back.setFont(new Font("Bebas Neue", Font.BOLD, 50));
-        back.setForeground(new Color(0x6F1D1B));
-        back.setBackground(Color.white);
-        back.addActionListener(new ActionListener(){
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                   if(e.getSource().equals(back)){
-                       dispose();
-                        new DashboardUser(username);
-                }
-                }
-        });
-
         pnl4 = new JPanel();
         pnl4.setLayout(null);
         pnl4.setBounds(33, 240, 1390, 450);
@@ -333,83 +315,3 @@ public class BROWSEUI extends JFrame implements ActionListener, ItemListener {
     
     
     
-    
-    
-    
-    
-     
-     
-//    public void Confirm(){
-//        JFrame frm = new JFrame();
-//        JLabel label = new JLabel("User ID");
-//         JLabel label1 = new JLabel("Borrow Date(DD/MM/YY)");
-//           JLabel label2 = new JLabel("Period(Days)");
-//         JLabel label3 = new JLabel("Transaction ID");
-//         
-//         label.setBounds(127, 107, 400, 43);
-//         label1.setBounds(126, 230, 400, 43);
-//         label2.setBounds(590, 230, 400, 43);
-//         label3.setBounds(127, 350, 400, 43);
-//       
-//         label.setFont(new Font ("Plus Jakarta Sans",Font.PLAIN, 24));
-//         label1.setFont(new Font ("Plus Jakarta Sans",Font.PLAIN, 24));
-//           label2.setFont(new Font ("Plus Jakarta Sans",Font.PLAIN, 24));
-//             label3.setFont(new Font ("Plus Jakarta Sans",Font.PLAIN, 24));
-//             
-//                label.setForeground(new Color(0x6F1D1B));
-//                   label1.setForeground(new Color(0x6F1D1B));
-//                      label2.setForeground(new Color(0x6F1D1B));
-//                         label3.setForeground(new Color(0x6F1D1B));
-//                         
-//    }  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//        String genre[] = {"Select Genre", "Fantasy", "Romance", "Mystery", "Science Fiction", "Horror"};
-//        JComboBox cb = new JComboBox(genre);
-//        
-//            ArrayList<User> users;
-//            
-//     public BROWSEUI(){
-//            add(cb);
-//         
-//           cb.setBounds(800, 41, 276, 44);
-//           cb.setForeground(Color.BLACK);
-//           cb.setFont(new Font("Futura", Font.CENTER_BASELINE,20));
-//         
-//         
-//         
-//         this.setSize(1300, 800);
-//           this.getContentPane().setBackground(new Color(0x6F1D1B));
-//           this.setLocationRelativeTo(null);
-//           this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//           setResizable(false);
-//           setTitle(""+users);
-//           setLayout(null);
-//           setTitle("Borrower's Account");
-//           this.setVisible(true);
-//    }
-//
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//  
-//    }
-//}
