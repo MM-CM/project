@@ -1,4 +1,4 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -22,8 +22,8 @@ import javax.swing.table.DefaultTableModel;
 
 
     public class BOOKHISTORYUI extends JFrame implements ActionListener{
-        LinkedListBook bookList = new LinkedListBook();
-        JButton back = new JButton();
+       LinkedListBook bookList = new LinkedListBook();
+        JButton exit = new JButton();
         
         private String[] headers = {"Title", "Author", "ISBN", "Genre", "Borrowed Date", "Due Date", "Overdue Fine"};
         DefaultTableModel defTab = new    DefaultTableModel(bookList.getBookData(), headers);
@@ -33,11 +33,14 @@ import javax.swing.table.DefaultTableModel;
         private JPanel pnl1, pnl2, pnl3, pnl4;
         
         private JLabel a, b;
-        
         private String username;
         
         public BOOKHISTORYUI(String username){
             this.username = username;
+        
+        a = new JLabel(username);
+        a.setFont(new Font("Bebas Neue", Font.BOLD, 48));
+        a.setBounds(116, 20, 315, 60);    
             
         b = new JLabel("BORROWED BOOKS");
         b.setFont(new Font("Bebas Neue", Font.BOLD, 80));
@@ -47,6 +50,22 @@ import javax.swing.table.DefaultTableModel;
         a = new JLabel(username);
         a.setFont(new Font("Bebas Neue", Font.BOLD, 48));
         a.setBounds(116, 20, 315, 60);
+        
+        exit = new JButton();
+        exit.setBounds(1259, 15, 187, 56);
+        exit.setText("Back");
+        exit.setFont(new Font("Bebas Neue",Font.BOLD, 40));
+        exit.setForeground(Color.white);
+        exit.setBackground(new Color(0xBB9457));
+        exit.setLayout(null);
+        exit.addActionListener(new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    dispose();
+                    new DashboardUser(username);
+                }
+            
+        });
         
         pnl2 = new JPanel();
         pnl2.setLayout(null);
@@ -60,31 +79,18 @@ import javax.swing.table.DefaultTableModel;
         
         sp.setBounds(33, 240, 1390, 100);
         
-        back = new JButton("Back");
-        back.setBounds(1200, 750, 226, 88);
-        back.setFont(new Font("Bebas Neue", Font.BOLD, 50));
-        back.setForeground(new Color(0x6F1D1B));
-        back.setBackground(Color.white);
-        back.addActionListener(this);
 
-//        pnl3 = new JPanel();
-//        pnl3.setLayout(null);
-//        pnl3.setBounds(836, 86, 640, 840);
-//        pnl3.setBackground(new Color(0x6F1D1B));
-//        pnl3.setBackground(new Color(0x99582A));
+        pnl2 = new JPanel();
+        pnl2.setLayout(null);
+        pnl2.setBackground(new Color(0xD9D9D9));
+        pnl2.setBounds(0, 0, 1530, 86);
         
-        
-//        pnl4 = new JPanel();
-//        pnl4.setLayout(null);
-//        pnl4.setBounds(896, 221, 528, 513);
-//        pnl4.setBackground(new Color(0xBB9457));
-        
+         
+        pnl2.add(exit);
         pnl2.add(a);
         pnl1.add(b);
         pnl1.add(sp);
-        pnl1.add(back);
-//        this.add(pnl4);
-//        this.add(pnl3);
+ 
         this.add(pnl2);
         this.add(pnl1);
          
@@ -102,12 +108,14 @@ import javax.swing.table.DefaultTableModel;
 
     @Override
     public void actionPerformed(ActionEvent e) {
-       if(e.getSource().equals(back)){
-           dispose();
-           new DashboardUser(username);
-       }
+//       if(e.getSource().equals(back)){
+//           dispose();
+//           new DashboardUser(username);
+//       }
+//    }
     }
     }
+
 
 
 
