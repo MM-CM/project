@@ -97,7 +97,6 @@ import javax.swing.table.DefaultTableModel;
         this.setSize(1476, 896);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-//        this.getContentPane().setBackground(new Color(0x6F1D1B));
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setVisible(true);
         this.setLayout(null);
