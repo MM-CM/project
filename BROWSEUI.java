@@ -50,8 +50,8 @@ public class BROWSEUI extends JFrame implements ActionListener, ItemListener {
             this.username = username;
 //            public BROWSEUI(){
         
-
-        // When the this frame display, the sorted books displayed  eeven without performng an action
+        updateTableWithSortedBooks(defTab);
+        // When the this frame display, the sorted books displayed without performng an action
         updateTableWithSortedBooks(defTab);
             
         pnl2 = new JPanel();
@@ -67,10 +67,12 @@ public class BROWSEUI extends JFrame implements ActionListener, ItemListener {
         search.setIcon(new ImageIcon(image2));
         search.setBounds(215, 11, 81, 53);
         search.setBorder(null);
+//        search.setText("Search");
         search.setHorizontalTextPosition(JButton.LEFT);
         search.setFont(new Font("Bebas Neue", Font.BOLD, 30));
         search.setForeground(Color.WHITE);
         search.setBackground(new Color(0xBB9457));
+//        search.setIcon(new ImageIcon(image2));
         search.addActionListener(e -> {
             String inputISBN = isbn.getText(); // Get d input as a string     
 
@@ -99,7 +101,7 @@ public class BROWSEUI extends JFrame implements ActionListener, ItemListener {
     } else {
         // If input is empty
         JOptionPane.showMessageDialog(this, "Please enter an ISBN to search.", "Error", JOptionPane.ERROR_MESSAGE);
-        resetTableData(); // Reset the table data
+        resetTableData(defTab); // Reset the table data
     }
     // Update table with all books sorted by title
     updateTableWithSortedBooks(defTab);
@@ -159,7 +161,7 @@ public class BROWSEUI extends JFrame implements ActionListener, ItemListener {
         // If a genre other than "All" is selected, filter books
         if (!selectedGenre.equals("All")) {
             Object[][] getBookData = bookList.getBookData(); // Get the book data
-
+            
             // Loop the books t check the genre
             for (Object[] book : getBookData) {
                 String bookGenre = (String) book[3];
@@ -192,7 +194,7 @@ public class BROWSEUI extends JFrame implements ActionListener, ItemListener {
         pnl1.setBounds(-7, 86, 1500, 875);
 
         borrow = new JButton("Borrow");
-        borrow.setBounds(950, 6550, 250, 88);
+        borrow.setBounds(950, 700, 250, 88);
         borrow.setFont(new Font("Bebas Neue", Font.BOLD, 50));
         borrow.setForeground(new Color(0x6F1D1B));
         borrow.setBackground(Color.white);  
@@ -233,6 +235,21 @@ public class BROWSEUI extends JFrame implements ActionListener, ItemListener {
     }
 });
        
+//        back = new JButton("Back");
+//        back.setBounds(1200, 750, 226, 88);
+//        back.setFont(new Font("Bebas Neue", Font.BOLD, 50));
+//        back.setForeground(new Color(0x6F1D1B));
+//        back.setBackground(Color.white);
+//        back.addActionListener(new ActionListener(){
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                   if(e.getSource().equals(back)){
+//                       dispose();
+//                        new DashboardUser(username);
+//                }
+//                }
+//        });
+
         pnl4 = new JPanel();
         pnl4.setLayout(null);
         pnl4.setBounds(33, 240, 1390, 450);
@@ -282,7 +299,7 @@ public class BROWSEUI extends JFrame implements ActionListener, ItemListener {
     }
 }
                 
-    public void resetTableData() {
+    public void resetTableData(DefaultTableModel defTab) {
     DefaultTableModel model = (DefaultTableModel) defTab;
     Object[][] getBookData = bookList.getBookData();
     model.setRowCount(0); // Clear the table
@@ -300,8 +317,6 @@ public class BROWSEUI extends JFrame implements ActionListener, ItemListener {
     public void itemStateChanged(ItemEvent e) {  
     }
 }
-    
-    
     
 
         
