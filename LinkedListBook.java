@@ -1,4 +1,5 @@
-/*
+
+  /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -16,7 +17,8 @@ public class LinkedListBook {
     public LinkedListBook() {
         head = null;
         size = 0;
-        addBook("The Great Gatsby", "F. Scott Fitzgerald", 1001, "Fiction", true);
+        
+        addBook("The Great Gatsby", "F. Scott Fitzgerald", 1001, "Fiction", false);
         addBook("1984", "George Orwell", 1002, "Fiction", true);
         addBook("Introduction to Algorithms", "Thomas H. Cormen", 1003, "Education", true);
         addBook("Sapiens: A Brief History of Humankind", "Yuval Noah Harari", 1004, "Non-Fiction", true);
@@ -26,6 +28,7 @@ public class LinkedListBook {
     // Method to add a book
     public void addBook(String title, String author, int ISBN, String genre, boolean isAvailable) {
         NodeBook newNode = new NodeBook(title, author, ISBN, genre, isAvailable);
+        
         if (head == null) {
             head = newNode;
         } else {
@@ -179,7 +182,7 @@ public class LinkedListBook {
         size++;
         current = current.getNext();
     }
-
+    
     // Create an array to hold the books
     NodeBook[] booksArray = new NodeBook[size];
 
@@ -194,35 +197,37 @@ public class LinkedListBook {
 
     return booksArray;
 }
-   public static void quickSortByTitle(NodeBook[] booksArray, int low, int high) {
+    //method to sort books by title(alphabetical order)
+   public static void quickSortByTitle(NodeBook[] booksArray, int low, int high) {  
     if (low >= high) {
         return;
     }
 
     NodeBook pivot = booksArray[high]; // Use the last element as the pivot
-    int leftPointer = low;
+    int leftPointer = low; 
     int rightPointer = high;
 
-    while (leftPointer < rightPointer) {
+    while (leftPointer < rightPointer) {//2 pointers to traverse array
+        
         // Move left pointer right as long as title is less than or equal to pivot title
-        while (booksArray[leftPointer].getTitle().compareTo(pivot.getTitle()) <= 0 && leftPointer < rightPointer) {
+        while (booksArray[leftPointer].getTitle().compareTo(pivot.getTitle()) <= 0 && leftPointer < rightPointer) {//compareTo method compares 2 strings alphabeticallu
             leftPointer++;
         }
-         // Move right pointer left
+         // Move right pointer until element smaller than th pivot 
         while (booksArray[rightPointer].getTitle().compareTo(pivot.getTitle()) >= 0 && leftPointer < rightPointer) {
             rightPointer--;
         }
         //swap left & right pointer if kailangan
         swap(booksArray, leftPointer, rightPointer);
     }
-    //swap pivot sa correct pos
+    //swap pivot sa correct position
     swap(booksArray, leftPointer, high);
 
     // Recursively sort the partitions
     quickSortByTitle(booksArray, low, leftPointer - 1);
     quickSortByTitle(booksArray, leftPointer + 1, high);
 }
-        // Swap method for NodeBook[]
+        // A method that swaps two elements in array of NodeBook
      private static void swap(NodeBook[] arr, int i, int j) {
          NodeBook temp = arr[i];
          arr[i] = arr[j];
@@ -234,7 +239,7 @@ public class LinkedListBook {
     // Convert to array
     NodeBook[] booksArray = toArray();
 
-    // Sort the array using quicksort, sorting by genre
+    // Sort the array using quicksort, sorting by title
     quickSortByTitle(booksArray, 0, booksArray.length - 1);
 
     // Update the LinkedList (optional, if you want to keep it sorted)
@@ -296,7 +301,7 @@ public class LinkedListBook {
     }
     return false; // Book not found
 }
-         //to retrieve nodeBook at speci index
+         //to retrieve nodeBook at specific index
     public NodeBook getAtIndex(int index) {
     if (index < 0 || index >= size) {
         throw new IndexOutOfBoundsException("Invalid index.");
@@ -307,6 +312,7 @@ public class LinkedListBook {
     }
     return current;
 }
+    
   
 }
     
