@@ -44,6 +44,10 @@ public class DashboardUser extends JFrame implements ActionListener {
         JButton changePass = new JButton();
         JLabel c1 = new JLabel();
         JLabel c2 = new JLabel();
+        
+//            JTextField textF = new JTextField();
+//            JPasswordField passF = new JPasswordField();
+//        
 
         public DashboardUser(String username){
          this.username = username;
@@ -51,6 +55,8 @@ public class DashboardUser extends JFrame implements ActionListener {
             
             add(pnl1);
             add(pnl2);
+//            add(textF);
+//            add(passF);
             add(historyB);
             add(browseB);
          
@@ -68,6 +74,11 @@ public class DashboardUser extends JFrame implements ActionListener {
              historyB.setBackground(new Color(0xBB9457));
              historyB.setLayout(null);
              historyB.addActionListener(this);
+           
+//              h1.setText("History");
+//              h1.setBounds(10, 110 , 280, 90);
+//              h1.setForeground(Color.white);
+//              h1.setFont(new Font("Bebas Neue",Font.BOLD,70));
 
               h2.setText("Borrowing");
               h2.setBounds(10, 120 , 400, 100);
@@ -131,9 +142,27 @@ public class DashboardUser extends JFrame implements ActionListener {
                       exit.add(d);             
                       pnl2.add(exit);
                       pnl2.add(a);
-
+                      
+//                        c1.setText("Change Password");
+//                        b2.setBounds(10, 220 , 270, 60);
+//                        b2.setForeground(Color.white);
+//                        b2.setFont(new Font("Bebas Neue",Font.BOLD,70));
+//                        changePass.add(b2);
+//                      
+//                      changePass.setBounds(530, 600, 400, 300);
+//                      changePass.setBackground(new Color(0xBB9457));
+//                        changePass.setForeground(Color.WHITE);
+//                        changePass.setFont(new Font("Bebas Neue", Font.CENTER_BASELINE,20));
+//                        changePass.setLayout(null);
+//                        changePass.addActionListener(this);
+                        
+                        
+                        
+                      
+            
                     pnl1.add(historyB);
-                    pnl1.add(browseB);       
+                    pnl1.add(browseB);
+//                    pnl1.add(changePass);         
                    
            this.setSize(1476, 896);
            this.setResizable(false);
@@ -167,7 +196,6 @@ public class DashboardUser extends JFrame implements ActionListener {
     }
     }
 }
-
 
       
   
